@@ -4,14 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DevBoard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
     <header>
-      <nav>
+      <nav id="navbar-count">
         <div class="navbar bg-base-100 shadow-sm">
           <div class="flex-none">
             <img src="./assets/logo.png" alt="" />
@@ -54,16 +55,17 @@
         <section class="flex-1 grid grid-cols-3 gap-6">
           <!-- Task Assigned -->
           <div class="flex items-center bg-[#F4F7FF] p-6 shadow rounded-xl">
-            <input type="checkbox" checked class="mr-4" />
+            
             <div>
+              <input type="checkbox" checked class="mr-4" />
               <h3 class="font-bold">Task Assigned</h3>
-              <p class="text-gray-500" id="taskCounter">0</p>
+              <div id="task-assigned">0</div>
             </div>
           </div>
 
           <!-- Discover New Things -->
-          <div
-            class="bg-gradient-to-r from-[#0C2CF6] via-purple-500 to-[#9BA8F8] text-white p-6 shadow rounded-xl flex items-center gap-4"
+          <div id="discover"
+            class="cursor-pointer bg-gradient-to-r from-[#0C2CF6] via-purple-500 to-[#9BA8F8] text-white p-6 shadow rounded-xl flex items-center gap-4"
           >
             <img src="./assets/board.png" alt="Discover" class="w-16 h-16" />
             <h3 class="text-lg">Discover Something New Today!</h3>
@@ -81,18 +83,123 @@
           </div>
         </section>
 
-        <!-- Activity Log -->
-        <aside class="w-1/4 bg-white p-6 shadow rounded-xl h-auto">
-            <div class="flex">
-                <img class="size-8" src="./assets/activity.png" alt="">
-          <h3 class="font-bold text-lg mb-4 ml-4">Activity Log</h3>
-            </div>
-          <div class="">
-            <button class="btn btn-dash btn-primary">Primary</button>
-          </div>
-        </aside>
-      </main>
+       <!-- Activity Log -->
+<aside class="w-1/4 bg-white p-6 shadow rounded-xl h-auto">
+  <div class="flex items-center mb-4">
+      <img class="size-8" src="./assets/activity.png" alt="">
+      <h3 class="font-bold text-lg ml-4">Activity Log</h3>
+  </div>
+  
+  <!-- Log Entries Container -->
+  <div id="activity-log" class="space-y-2 max-h-60 overflow-y-auto">
+      
+  </div>
+
+  <!-- Clear History Button -->
+  <button id="clear-history" class="bg-blue-800 mt-4 rounded w-full h-10 text-white hover:bg-blue-600 transition duration-200">
+      Clear History
+  </button>
+</aside>
+      </main> 
     </section>
-    <footer></footer>
+    <!-- card section  -->
+     <section class="p-8 grid grid-cols-3 gap-10">
+      
+        <!-- card 1 -->
+          <div class="card card-dash bg-[#F4F7FF] rounded-xl w-96 ">
+            <div class="card-body">
+              <p  class="bg-white h-10 w-20 rounded-md text-center items-center">ShopEase</p>
+              <h2 class="card-title text-3xl">Fix Mobile Button Issue </h2>
+              <p class="bg-white rounded-lg text-center">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+                and ensure onClick works properly</p>
+              <div class="card-actions justify-end">
+                <p>Deadline <br>
+                  21 March 2025</p>
+                <button class="btn btn-primary">Completed</button>
+              </div>
+            </div>
+          </div>
+        <!-- card 2 -->
+          <div class="card card-dash bg-[#F4F7FF] rounded-xl w-96 ">
+            <div class="card-body">
+              <p  class="bg-white h-10 w-20 rounded-md text-center items-center">CloudSync</p>
+              <h2 class="card-title text-3xl">Add Dark Mode</h2>
+              <p class="bg-white rounded-lg text-center">Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.</p>
+              <div class="card-actions justify-end">
+                <p>Deadline <br>
+                  21 March 2025</p>
+                <button class="btn btn-primary">Completed</button>
+              </div>
+            </div>
+          </div>
+        <!-- card 3 -->
+          <div class="card card-dash bg-[#F4F7FF] rounded-xl w-96 ">
+            <div class="card-body">
+              <p  class="bg-white h-10 w-20 rounded-md text-center items-center">ShopEase</p>
+              <h2 class="card-title text-3xl">Fix Mobile Button Issue </h2>
+              <p class="bg-white rounded-lg text-center">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+                and ensure onClick works properly</p>
+              <div class="card-actions justify-end">
+                <p>Deadline <br>
+                  21 March 2025</p>
+                <button class="btn btn-primary">Completed</button>
+              </div>
+            </div>
+          </div>
+        <!-- card 4 -->
+          <div class="card card-dash bg-[#F4F7FF] rounded-xl w-96 ">
+            <div class="card-body">
+              <p  class="bg-white h-10 w-20 rounded-md text-center items-center">ShopEase</p>
+              <h2 class="card-title text-3xl">Fix Mobile Button Issue </h2>
+              <p class="bg-white rounded-lg text-center">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+                and ensure onClick works properly</p>
+              <div class="card-actions justify-end">
+                <p>Deadline <br>
+                  21 March 2025</p>
+                <button class="btn btn-primary">Completed</button>
+              </div>
+            </div>
+          </div>
+        <!-- card 5 -->
+          <div class="card card-dash bg-[#F4F7FF] rounded-xl w-96 ">
+            <div class="card-body">
+              <p  class="bg-white h-10 w-20 rounded-md text-center items-center">ShopEase</p>
+              <h2 class="card-title text-3xl">Fix Mobile Button Issue </h2>
+              <p class="bg-white rounded-lg text-center">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+                and ensure onClick works properly</p>
+              <div class="card-actions justify-end">
+                <p>Deadline <br>
+                  21 March 2025</p>
+                <button class="btn btn-primary">Completed</button>
+              </div>
+            </div>
+          </div>
+        <!-- card 6 -->
+          <div class="card card-dash bg-[#F4F7FF] rounded-xl w-96 ">
+            <div class="card-body">
+              <p  class="bg-white h-10 w-20 rounded-md text-center items-center">ShopEase</p>
+              <h2 class="card-title text-3xl">Fix Mobile Button Issue </h2>
+              <p class="bg-white rounded-lg text-center">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
+                and ensure onClick works properly</p>
+              <div class="card-actions justify-end">
+                <p>Deadline <br>
+                  21 March 2025</p>
+                <button id="last-btn" class="btn btn-primary">Completed</button>
+              </div>
+            </div>
+          </div>
+          
+      </div>
+     </section>
+    <footer>
+
+    </footer>
+
+  <script src="./script/blog.js"></script>
+  <script src="./script/complete-btn.js"></script>
+  <script src="./script/activity.js"></script>
+  <script src="./script/color.js"></script>
+
+
   </body>
 </html>
