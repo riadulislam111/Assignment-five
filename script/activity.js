@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("click", function () {
     const activityLog = document.getElementById("activity-log");
     const clearHistoryBtn = document.getElementById("clear-history");
 

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("click", function () {
     const completedButtons = document.querySelectorAll(".btn-primary");
     const taskAssigned = document.getElementById("task-assigned");
     const navbarCounter = document.getElementById("counter");
